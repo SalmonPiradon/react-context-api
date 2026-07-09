@@ -3,8 +3,10 @@ import "./App.css";
 
 import HomePage from "./pages/HomePage.jsx";
 import ViewProductPage from "./pages/ViewProductPage.jsx";
+import { UserProvider } from "./context/userContext";
 
 function App() {
+
   const userData = {
     username: "John",
     avatar: "https://placedog.net/100/100",
@@ -12,14 +14,16 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/product/view/:id" element={<ViewProductPage />} />
-        </Routes>
-      </Router>
-    </div>
+    <UserProvider value={userData}>
+      <div className="App">
+        <Router>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/product/view/:id" element={<ViewProductPage />} />
+          </Routes>
+        </Router>
+      </div>
+    </UserProvider>
   );
 }
 
