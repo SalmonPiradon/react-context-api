@@ -7,14 +7,8 @@ import { UserProvider } from "./context/userContext";
 
 function App() {
 
-  const userData = {
-    username: "John",
-    avatar: "https://placedog.net/100/100",
-    level: "platinum",
-  };
-
   return (
-    <UserProvider value={userData}>
+    <UserProvider>
       <div className="App">
         <Router>
           <Routes>
